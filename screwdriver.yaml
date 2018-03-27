@@ -3,4 +3,5 @@ jobs:
     requires: [ ~pr, ~commit ]
     image: buildpack-deps:jessie
     steps:
-    - it: ./sdc-mplater.sh
+    - it: ./sdc-mplater.sh mplater -i ./input.tmpl -o output.txt -x imageName=you_chose_this_image_name
+    - check: cat output.txt
