@@ -10,4 +10,4 @@ if [ ! $? -eq ]; then
   exit $ret_val
 fi
 
-/opt/sd/bin/hab pkg exec $PKG $@
+/opt/sd/bin/hab pkg exec $PKG "$@"
