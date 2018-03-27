@@ -16,5 +16,5 @@ jobs:
   test_in_prod:
     requires: main
     steps:
-    - try_it: sd-cmd exec fenrirunbound/mplater@0.1 mplater -i input.tmpl -o output.txt -x inputArg=this_is_it
+    - try_it: sd-cmd exec FenrirUnbound/mplater@0.1 -i input.tmpl -o output.txt -x inputArg=this_is_it
     - validate: diff comparison.txt output.txt
