@@ -1,14 +1,20 @@
+shared:
+  image: node:8
 jobs:
   pr:
     requires:
     - ~pr
-    image: node:8
     steps:
     - install: npm i -g screwdriver-command-validator
     - validate: command-validate -f ./sd-command.yaml
   main:
     requires:
     - ~commit
-    image: node:8
     steps:
     - publish: sd-cmd publish -f ./sd-command.yaml
+
+  test_in_prod:
+    requires: main
+    steps:
+    - try_it: sd-cmd exec fenrirunbound/mplater@0.1 mplater -i input.tmpl -o output.txt -x inputArg=this_is_it
+    - validate: diff comparison.txt output.txt
