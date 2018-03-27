@@ -1,0 +1,11 @@
+namespace: FenrirUnbound
+name: mplater
+version: '0.1'
+description: |
+  Simple Go-based templating tool
+maintainer: aeneascorrupt@gmail.com
+format: habitat
+habitat:
+  mode: remote
+  package: fenrirunbound/mplater
+  command: mplater
