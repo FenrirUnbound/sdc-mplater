@@ -1,0 +1,6 @@
+jobs:
+  pr:
+    requires: [ ~pr, ~commit ]
+    image: buildpack-deps:jessie
+    steps:
+    - it: ./sdc-mplater.sh
