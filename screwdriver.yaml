@@ -5,6 +5,9 @@ jobs:
     requires:
     - ~pr
     steps:
+    - try_it: |
+        sd-cmd exec FenrirUnbound/mplater@0.1 -i input.tmpl -o output.txt -x inputArg=this_is_it
+        cat output.txt
     - install: npm i -g screwdriver-command-validator
     - validate: command-validate -f ./sd-command.yaml
   main:
