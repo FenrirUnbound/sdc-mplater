@@ -7,6 +7,10 @@ jobs:
     steps:
     - install: npm i -g screwdriver-command-validator
     - validate: command-validate -f ./sd-command.yaml
+    - weird: |
+        PKG="fenrirunbound/sd-cmd-validator/0.1.0/20180329220053"
+        /opt/sd/bin/hab pkg install $PKG -c stable > /dev/null
+        /opt/sd/bin/hab pkg exec $PKG sd-cmd-validator
   main:
     requires:
     - ~commit
